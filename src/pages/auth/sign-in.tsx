@@ -1,3 +1,3 @@
 export function SignIn() {
-  return <h1>Dashboard</h1>
+  return <h1>Sign In</h1>
 }
