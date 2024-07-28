@@ -4,10 +4,11 @@ import { router } from './routes'
 import { HelmetProvider, Helmet } from 'react-helmet-async'
 import { Toaster } from 'sonner'
 
-import './global.css'
 import { ThemeProvider } from './components/theme/theme-provider'
 import { QueryClientProvider } from 'react-query'
 import { queryClient } from './lib/react-query'
+
+import './global.css'
 
 export function App() {
   return (
