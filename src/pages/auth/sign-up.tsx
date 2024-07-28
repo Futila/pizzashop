@@ -1,9 +1,11 @@
+import { registerRestaurant } from '@/api/register-restaurant'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
+import { useMutation } from 'react-query'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import * as z from 'zod'
@@ -28,15 +30,24 @@ export function SignUp() {
 
   const navigate = useNavigate()
 
+  const { mutateAsync: registerRestaturantFn } = useMutation({
+    mutationFn: registerRestaurant,
+  })
+
   async function handleSignUp(data: SignUpForm) {
     try {
-      console.log(data)
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      await registerRestaturantFn({
+        restaurantName: data.restaurantName,
+        managerName: data.managerName,
+        email: data.email,
+        phone: data.phone,
+      })
+      // await new Promise((resolve) => setTimeout(resolve, 2000))
 
       toast.success('Restaurante cadastrado com sucesso', {
         action: {
           label: 'Login',
-          onClick: () => navigate('/sign-in'),
+          onClick: () => navigate(`/sign-in?email=${data.email}`),
         },
       })
     } catch {

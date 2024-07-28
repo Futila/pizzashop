@@ -2,11 +2,10 @@ import { signIn } from '@/api/sign-in'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import * as z from 'zod'
 
@@ -17,12 +16,17 @@ const signInForm = z.object({
 type SignInForm = z.infer<typeof signInForm>
 
 export function SignIn() {
+  const [searchParams] = useSearchParams()
+
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
   } = useForm<SignInForm>({
-    resolver: zodResolver(signInForm),
+    // resolver: zodResolver(signInForm),
+    values: {
+      email: searchParams.get('email') ?? '',
+    },
   })
 
   const { mutateAsync: authenticate } = useMutation({
