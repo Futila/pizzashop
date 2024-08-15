@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+# iFood (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashboard para gestão do estabelecimento e controle de pedidos estilo iFood.
 
-Currently, two official plugins are available:
+## Ferramentas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- React Router DOM
+- Tailwind
+- shadcn/ui
+- React Query
+- Radix
 
-## Expanding the ESLint configuration
+## Aprendizados importantes
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Autenticação JWT
+- Caching e revalidação
+- Conexão com back-end (API)
+- Testes unitários
 
-- Configure the top-level `parserOptions` property like this:
+## Funcionalidades
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Cadastro de estabelecimento;
+- Login de estabelecimento (magic link);
+- Cadastro como cliente;
+- Criação de novos pedidos;
+- Gestão do cardápio;
+- Gestão de avaliações;
+- Gestão de pedidos;
+- Gestão do perfil do estabelecimento;
+- Loja aberta/fechada;
+- Métricas p/ dashboard;
+  - Gráfico de pedidos nos últimos 15 dias;
+  - Gráfico de valores nos últimos 15 dias;
+  - Média de avaliações (mês/geral);
+  - Média de pedidos por dia (mês/geral);
+- Notificações sonoras de novos pedidos (alterar favicon);
