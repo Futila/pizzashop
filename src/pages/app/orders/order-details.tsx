@@ -17,6 +17,7 @@ import {
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { useQuery } from 'react-query'
+import { OrderDetailsSkeleton } from './oder-details-skeleton'
 
 export interface OrderDetailsProps {
   orderId: string
@@ -36,7 +37,7 @@ export function OrderDatails({ open, orderId }: OrderDetailsProps) {
         <DialogDescription>Detalhes do pedido</DialogDescription>
       </DialogHeader>
 
-      {order && (
+      {order ? (
         <div>
           <Table>
             <TableBody>
@@ -134,6 +135,8 @@ export function OrderDatails({ open, orderId }: OrderDetailsProps) {
             </TableFooter>
           </Table>
         </div>
+      ) : (
+        <OrderDetailsSkeleton />
       )}
     </DialogContent>
   )
