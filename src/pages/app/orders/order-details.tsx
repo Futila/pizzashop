@@ -18,6 +18,7 @@ import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { useQuery } from 'react-query'
 import { OrderDetailsSkeleton } from './oder-details-skeleton'
+import { OrderStatus } from '@/components/order-status'
 
 export interface OrderDetailsProps {
   orderId: string
@@ -44,12 +45,7 @@ export function OrderDatails({ open, orderId }: OrderDetailsProps) {
               <TableRow className="text-muted-foreground">
                 <TableCell>Status</TableCell>
                 <TableCell className="flex justify-end">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-slate-400"></span>
-                    <span className="font-medium text-muted-foreground">
-                      {order.status}
-                    </span>
-                  </div>
+                  <OrderStatus status={order.status} />
                 </TableCell>
               </TableRow>
               <TableRow>
